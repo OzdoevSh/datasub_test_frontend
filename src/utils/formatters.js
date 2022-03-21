@@ -1,5 +1,5 @@
 export function cardNumberFormatter(value) {
-  return value.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ').substring(0, 19)
+  return value.replace(/[^0-9]/g, '' ).replace(/\W/gi, '').replace(/(.{4})/g, '$1 ').substring(0, 19)
 }
 
 export function expirationDateFormatter(value) {
@@ -12,7 +12,7 @@ export function expirationDateFormatter(value) {
   ).replace(
     /^0{1,}/g, '0' 
   ).replace(
-    /^([0-1]{1}[0-9]{1})([0-9]{1,2}).*/g, '$1/$2'
+    /^([0-1]{1}[0-9]{1})([0-9]{1,2}).*/g, '$1/$2' 
   );
 }
 
